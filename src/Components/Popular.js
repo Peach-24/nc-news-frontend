@@ -7,8 +7,7 @@ import styled from 'styled-components';
 
 const Title = styled.h1`
   padding-top: 1rem;
-  color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
 `;
 
 class Popular extends Component {

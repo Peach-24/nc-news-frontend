@@ -8,7 +8,6 @@ import { Link } from '@reach/router';
 
 const Title = styled.h1`
   padding-top: 1rem;
-  color: white;
 `;
 
 class Latest extends Component {

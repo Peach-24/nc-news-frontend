@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
-import Header1 from './Header1';
 import Nav1 from './Nav1';
+import styled from 'styled-components';
+import StoryPreviewBlock from './StoryPreviewBlock';
+
+const Title = styled.h1`
+  color: darkred;
+  font-size: 4rem;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 40px 0 10px 0;
+`;
+const DateText = styled.p`
+  font-size: 2rem;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+`;
 
 class Home extends Component {
   state = {};
@@ -9,10 +22,18 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <Nav1 />
-        <Header1 />
-        <p>HOME PAGE</p>
+      <div className='homeContainer'>
+        <div className='sidebar'>
+          <Nav1 />
+        </div>
+        <div className='homeMain'>
+          <Title>Northcoders News</Title>
+          <DateText>December 7th</DateText>
+          <hr></hr>
+          <StoryPreviewBlock />
+          <StoryPreviewBlock />
+          <StoryPreviewBlock />
+        </div>
       </div>
     );
   }

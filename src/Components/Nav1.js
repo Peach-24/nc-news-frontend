@@ -5,16 +5,16 @@ const Nav1 = () => {
   return (
     <div>
       <Link to='/latest'>
-        <button>Latest</button>
+        <button className='sidebar-button'>Latest</button>
       </Link>
       <Link to='/popular'>
-        <button>Popular</button>
+        <button className='sidebar-button'>Popular</button>
       </Link>
       <Link to='/topics'>
-        <button>Topics</button>
+        <button className='sidebar-button'>Topics</button>
       </Link>
       <Link to='/random'>
-        <button>Random Story</button>
+        <button className='sidebar-button'>Random Story</button>
       </Link>
     </div>
   );

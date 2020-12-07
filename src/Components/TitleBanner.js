@@ -7,8 +7,9 @@ const TitleDiv = styled.div`
   width: 100%;
   color: red;
   background-color: black;
-  height: 50px;
-  position: fixed;
+  height: 40px;
+  margin: 0;
+  z-index: 100;
 `;
 
 const Name = styled.h3`
@@ -17,8 +18,9 @@ const Name = styled.h3`
   left: 0;
   right: 0;
   top: 10px;
+  color: red;
 `;
-const Date = styled.p`
+const DateText = styled.p`
   color: grey;
   position: fixed;
   right: 50px;
@@ -32,7 +34,7 @@ const TitleBanner = () => {
       <Link to='/'>
         <Name>Northcoders News</Name>
       </Link>
-      <Date>7th December 2020</Date>
+      <DateText>7th December 2020</DateText>
     </TitleDiv>
   );
 };

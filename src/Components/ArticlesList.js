@@ -10,8 +10,6 @@ const StoryList = styled.ul`
 const StoryListItem = styled.li`
   list-style-type: none;
   margin: 1rem;
-  background-color: whitesmoke;
-  box-shadow: 2px 2px 5px grey;
   display: flex;
   padding: 1rem;
   text-align: left;
@@ -28,14 +26,15 @@ const ArticlesList = (props) => {
               key={article.article_id}
             >
               <div className='storyListPreviewImg'></div>
-              <div>
+              <div className='article-list-info'>
+                <p>{article.author}</p>
                 <Link
                   className='articleLink'
                   to={`/articles/${article.article_id}`}
                 >
                   <h4>{article.title}</h4>
                 </Link>
-                <p>{article.author}</p>
+                <p>{article.created_at}</p>
               </div>
             </StoryListItem>
           );
