@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link } from '@reach/router';
+import { css } from '@emotion/core';
+import ClockLoader from 'react-spinners/ClockLoader';
 
+const override = css`
+  margin: 100px auto;
+  border-color: block;
+`;
 const NavBtn = styled.button`
   &:hover {
     text-decoration: underline;
@@ -14,13 +21,42 @@ const NavBtn = styled.button`
 `;
 
 class Nav2 extends Component {
+  state = {
+    page: '',
+    isLoading: true,
+  };
+
+  componentDidMount() {
+    const { pageHeader } = this.props;
+    console.log(pageHeader);
+    this.setState({ page: pageHeader, isLoading: false });
+  }
+
   render() {
+    if (this.state.isLoading) {
+      return (
+        <ClockLoader
+          css={override}
+          size={50}
+          color={'black'}
+          loading={this.state.loading}
+        />
+      );
+    }
     return (
       <div>
-        <NavBtn onClick={() => console.log('clicked!')}>All</NavBtn>
-        <NavBtn onClick={() => console.log('clicked!')}>Coding</NavBtn>
-        <NavBtn onClick={() => console.log('clicked!')}>Football</NavBtn>
-        <NavBtn onClick={() => console.log('clicked!')}>Cooking</NavBtn>
+        <Link to={`/${this.state.page}/all`}>
+          <NavBtn>All</NavBtn>
+        </Link>
+        <Link to={`/${this.state.page}/coding`}>
+          <NavBtn>Coding</NavBtn>
+        </Link>
+        <Link to={`/${this.state.page}/football`}>
+          <NavBtn>Football</NavBtn>
+        </Link>
+        <Link to={`/${this.state.page}/cooking`}>
+          <NavBtn>Cooking</NavBtn>
+        </Link>
         <hr></hr>
       </div>
     );

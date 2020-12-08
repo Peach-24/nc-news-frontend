@@ -1,8 +1,6 @@
 import React from 'react';
 
 const StoryPreviewBlock = (props) => {
-  console.log(props);
-
   return (
     <div>
       <h2>{props.header}</h2>

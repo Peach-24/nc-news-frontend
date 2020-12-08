@@ -3,11 +3,11 @@ import { Link } from '@reach/router';
 
 const Nav1 = () => {
   return (
-    <div>
-      <Link to='/latest'>
+    <div className='sidebar-links'>
+      <Link to='/latest/all'>
         <button className='sidebar-button'>Latest</button>
       </Link>
-      <Link to='/popular'>
+      <Link to='/popular/all'>
         <button className='sidebar-button'>Popular</button>
       </Link>
       <Link to='/topics'>

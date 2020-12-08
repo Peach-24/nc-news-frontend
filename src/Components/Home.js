@@ -3,6 +3,14 @@ import Nav1 from './Nav1';
 import styled from 'styled-components';
 import StoryPreviewBlock from './StoryPreviewBlock';
 import * as api from '../api';
+import { css } from '@emotion/core';
+import ClockLoader from 'react-spinners/ClockLoader';
+import { Link } from '@reach/router';
+
+const override = css`
+  margin: 100px auto;
+  border-color: block;
+`;
 
 const Title = styled.h1`
   color: darkred;
@@ -50,7 +58,14 @@ class Home extends Component {
 
   render() {
     if (this.state.isLoading) {
-      return <p>Loading...</p>;
+      return (
+        <ClockLoader
+          css={override}
+          size={50}
+          color={'black'}
+          loading={this.state.loading}
+        />
+      );
     }
     return (
       <div className='homeContainer'>
@@ -58,7 +73,9 @@ class Home extends Component {
           <Nav1 />
         </div>
         <div className='homeMain'>
-          <Title>Northcoders News</Title>
+          <Link to='/'>
+            <Title>Northcoders News</Title>
+          </Link>
           <DateText>December 7th</DateText>
           <hr></hr>
           <StoryPreviewBlock

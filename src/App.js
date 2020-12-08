@@ -10,8 +10,8 @@ function App() {
     <div className='App'>
       <Router>
         <Home path='/' />
-        <Latest path='/latest' />
-        <Popular path='/popular' />
+        <Latest path='/latest/:topic' />
+        <Popular path='/popular/:topic' />
         <Article path='/articles/:article_id' />
       </Router>
     </div>
