@@ -1,63 +1,38 @@
-import React, { Component } from 'react';
-import * as api from '../api';
-// import ClockLoader from 'react-spinners/ClockLoader';
+import React from 'react';
 
-class StoryPreviewBlock extends Component {
-  state = {
-    articles: [],
-    isLoading: true,
-  };
+const StoryPreviewBlock = (props) => {
+  console.log(props);
 
-  componentDidMount() {
-    api.fetchPopularArticles().then((stories) => {
-      this.setState((currState) => {
-        const newState = {
-          articles: stories,
-          isLoading: false,
-        };
-        return newState;
-      });
-    });
-  }
-
-  render() {
-    const { articles, isLoading } = this.state;
-    if (isLoading) {
-      return <p>Loading...</p>;
-    }
-    return (
-      <div>
-        <h2>Top stories</h2>
-        <div className='story-previews'>
-          <div className='home-story'>
-            <div className='home-story-img'></div>
-            <div className='story-info'>
-              <h3>{articles[0].title}</h3>
-              <p>{articles[0].author}</p>
-            </div>
-          </div>
-
-          <div className='home-story'>
-            <div className='home-story-img'></div>
-            <div className='story-info'>
-              <h3>{articles[1].title}</h3>
-              <p>{articles[1].author}</p>
-            </div>
-          </div>
-
-          <div className='home-story'>
-            <div className='home-story-img'></div>
-            <div className='story-info'>
-              <h3>{articles[2].title}</h3>
-              <p>{articles[2].author}</p>
-            </div>
+  return (
+    <div>
+      <h2>{props.header}</h2>
+      <div className='story-previews'>
+        <div className='home-story'>
+          <div className='home-story-img'></div>
+          <div className='story-info'>
+            <h3>{props.articles[0].title}</h3>
+            <p>{props.articles[0].author}</p>
           </div>
         </div>
 
-        <hr></hr>
+        <div className='home-story'>
+          <div className='home-story-img'></div>
+          <div className='story-info'>
+            <h3>{props.articles[1].title}</h3>
+            <p>{props.articles[1].author}</p>
+          </div>
+        </div>
+
+        <div className='home-story'>
+          <div className='home-story-img'></div>
+          <div className='story-info'>
+            <h3>{props.articles[2].title}</h3>
+            <p>{props.articles[2].author}</p>
+          </div>
+        </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default StoryPreviewBlock;
