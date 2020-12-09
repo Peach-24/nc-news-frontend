@@ -16,7 +16,6 @@ const NavBtn = styled.button`
   color: black;
   background-color: transparent;
   border: 0px;
-  font-size: 13px;
   font-family: monospace;
 `;
 
@@ -46,16 +45,16 @@ class Nav2 extends Component {
     return (
       <div>
         <Link to={`/${this.state.page}/all`}>
-          <NavBtn>All</NavBtn>
+          <NavBtn className='nav2-button'>All</NavBtn>
         </Link>
         <Link to={`/${this.state.page}/coding`}>
-          <NavBtn>Coding</NavBtn>
+          <NavBtn className='nav2-button'>Coding</NavBtn>
         </Link>
         <Link to={`/${this.state.page}/football`}>
-          <NavBtn>Football</NavBtn>
+          <NavBtn className='nav2-button'>Football</NavBtn>
         </Link>
         <Link to={`/${this.state.page}/cooking`}>
-          <NavBtn>Cooking</NavBtn>
+          <NavBtn className='nav2-button'>Cooking</NavBtn>
         </Link>
         <hr></hr>
       </div>

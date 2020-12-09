@@ -1,11 +1,10 @@
 import axios from 'axios';
-// const url = 'https://nc-news-api-jp.herokuapp.com/api/articles';
-const latestUrl =
-  'https://nc-news-api-jp.herokuapp.com/api/articles?order_by=created_at';
+const popularUrl =
+  'https://nc-news-api-jp.herokuapp.com/api/articles?sort_by=comment_count';
 
 export const fetchLatestArticles = () => {
   return axios
-    .get(latestUrl)
+    .get('https://nc-news-api-jp.herokuapp.com/api/articles/')
     .then((res) => {
       return res.data.articles;
     })
@@ -16,7 +15,7 @@ export const fetchLatestArticles = () => {
 
 export const fetchPopularArticles = () => {
   return axios
-    .get('https://nc-news-api-jp.herokuapp.com/api/articles')
+    .get(popularUrl)
     .then((res) => {
       return res.data.articles;
     })
@@ -31,6 +30,19 @@ export const fetchOneStory = (articleId) => {
     .then((res) => {
       console.log(res.data.article);
       return res.data.article;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const fetchStoryComments = (articleId) => {
+  return axios
+    .get(
+      `https://nc-news-api-jp.herokuapp.com/api/articles/${articleId}/comments?sort_by=votes&limit=30`
+    )
+    .then((res) => {
+      return res.data.comments;
     })
     .catch((err) => {
       console.log(err);

@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from '@reach/router';
 
 const Nav1 = () => {
+  const randomArticleNo = Math.floor(Math.random() * Math.floor(36));
+
   return (
     <div className='sidebar-links'>
       <Link to='/latest/all'>
@@ -13,7 +15,7 @@ const Nav1 = () => {
       <Link to='/topics'>
         <button className='sidebar-button'>Topics</button>
       </Link>
-      <Link to='/random'>
+      <Link to={`/articles/${randomArticleNo}`}>
         <button className='sidebar-button'>Random Story</button>
       </Link>
     </div>

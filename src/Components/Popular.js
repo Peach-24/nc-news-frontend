@@ -64,7 +64,7 @@ class Popular extends Component {
       <div>
         <TitleBanner />
         <div className='storiesHeader'>
-          <Title>Popular</Title>
+          <Title className='latest-popular'>Popular</Title>
           <Nav2 pageHeader='popular' />
         </div>
         <ArticlesList articles={this.state[this.props.topic]} />;

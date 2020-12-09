@@ -26,10 +26,10 @@ const DateText = styled.p`
 
 class Home extends Component {
   state = {
-    articles: [],
-    codingArticles: [],
-    footballArticles: [],
-    cookingArticles: [],
+    all: [],
+    coding: [],
+    football: [],
+    cooking: [],
     isLoading: true,
   };
 
@@ -45,10 +45,10 @@ class Home extends Component {
 
       this.setState((currState) => {
         const newState = {
-          articles: stories,
-          codingArticles: codingStories,
-          footballArticles: footballStories,
-          cookingArticles: cookingStories,
+          all: stories,
+          coding: codingStories,
+          football: footballStories,
+          cooking: cookingStories,
           isLoading: false,
         };
         return newState;
@@ -66,40 +66,33 @@ class Home extends Component {
           loading={this.state.loading}
         />
       );
+    } else {
+      return (
+        <div className='homeContainer'>
+          <div className='sidebar'>
+            <Nav1 />
+          </div>
+          <div className='homeMain'>
+            <Link to='/'>
+              <Title>Northcoders News</Title>
+            </Link>
+            <DateText>December 7th</DateText>
+            <hr></hr>
+            <StoryPreviewBlock articles={this.state.all} header='Top Stories' />
+            <hr></hr>
+            <StoryPreviewBlock articles={this.state.coding} header='Coding' />
+            <hr></hr>
+            <StoryPreviewBlock
+              articles={this.state.football}
+              header='Football'
+            />
+            <hr></hr>
+            <StoryPreviewBlock articles={this.state.cooking} header='Cooking' />
+            <hr></hr>
+          </div>
+        </div>
+      );
     }
-    return (
-      <div className='homeContainer'>
-        <div className='sidebar'>
-          <Nav1 />
-        </div>
-        <div className='homeMain'>
-          <Link to='/'>
-            <Title>Northcoders News</Title>
-          </Link>
-          <DateText>December 7th</DateText>
-          <hr></hr>
-          <StoryPreviewBlock
-            articles={this.state.articles}
-            header='Top Stories'
-          />
-          <StoryPreviewBlock
-            articles={this.state.codingArticles}
-            header='Coding'
-          />
-          <hr></hr>
-          <StoryPreviewBlock
-            articles={this.state.footballArticles}
-            header='Football'
-          />
-          <hr></hr>
-          <StoryPreviewBlock
-            articles={this.state.cookingArticles}
-            header='Cooking'
-          />
-          <hr></hr>
-        </div>
-      </div>
-    );
   }
 }
 

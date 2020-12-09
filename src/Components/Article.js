@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import * as api from '../api';
 import TitleBanner from './TitleBanner';
+import * as f from '../functions/functions';
+import { Link } from '@reach/router';
 
 class Article extends Component {
   state = {
@@ -12,6 +14,9 @@ class Article extends Component {
     author: '',
     created_at: '',
     comment_count: '',
+    comments: [],
+    img: '',
+    isLoading: true,
   };
 
   componentDidMount() {
@@ -28,10 +33,14 @@ class Article extends Component {
           author: article[0].author,
           created_at: article[0].created_at,
           comment_count: article[0].comment_count,
+          img_url: article[0].img_url,
+          isLoading: false,
         };
-        console.log(newState);
         return newState;
       });
+    });
+    api.fetchStoryComments(article_id).then((comments) => {
+      this.setState({ comments });
     });
   }
 
@@ -39,23 +48,71 @@ class Article extends Component {
     const {
       title,
       body,
-      votes,
       topic,
       author,
       created_at,
       comment_count,
+      img_url,
+      comments,
     } = this.state;
 
-    console.log(this.state);
     return (
       <div>
         <TitleBanner />
-        <div className='story-body'>
+        <div className='story-head'>
+          <p>
+            <Link to={`/latest/${topic}`}>{topic}</Link>
+          </p>
           <h1 className='headline'>{title}</h1>
+          <p>{f.dateFormatter(created_at)}</p>
         </div>
-        <div className='storyMainImg'></div>
+        {/* <div className='storyMainImg'> */}
+        <img
+          src={img_url}
+          alt='featured imagery'
+          className='storyMainImg'
+        ></img>
+        {/* </div> */}
         <div className='story-body'>
-          <p>{body}</p>
+          <div className='byline'>
+            <div className='byline-img'></div>
+            <h4 className='byline-name'>
+              By <em>{author}</em>
+            </h4>
+            <br></br>
+          </div>
+          <hr></hr>
+          <p className='story-text'>{body}</p>
+        </div>
+        <div className='subscribe'>
+          <h4>Subscribe to the Northcoders Newsletter</h4>
+          <input type='text' placeholder='sign-up@northcoders.co.uk'></input>
+        </div>
+        <div className='comments-section'>
+          <hr></hr>
+
+          <ul className='comments-list'>
+            <h3>Comments ({comment_count})</h3>
+            {comments.map((comment) => {
+              return (
+                <li className='comment-card'>
+                  <div className='comment-content'>
+                    <p>{comment.body}</p>
+                    <p>
+                      <em>{comment.author}</em>
+                    </p>
+                  </div>
+                  <div className='comment-vote'>
+                    <p id='voteCount'>
+                      <strong>{comment.votes}</strong>
+                    </p>
+                    <button id='voteBtn'>⬆️</button>
+                    <button id='voteBtn'>⬇️</button>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
     );

@@ -4,7 +4,6 @@ import Nav2 from './Nav2';
 import * as api from '../api.js';
 import ArticlesList from './ArticlesList';
 import styled from 'styled-components';
-import { Link } from '@reach/router';
 import { css } from '@emotion/core';
 import ClockLoader from 'react-spinners/ClockLoader';
 
@@ -64,7 +63,7 @@ class Latest extends Component {
       <div>
         <TitleBanner />
         <div className='storiesHeader'>
-          <Title>Latest</Title>
+          <Title className='latest-popular'>Latest</Title>
           <Nav2 pageHeader='latest' />
         </div>
         <ArticlesList articles={this.state[this.props.topic]} />;

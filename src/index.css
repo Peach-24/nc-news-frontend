@@ -32,41 +32,6 @@ a {
     'Lucida Sans', Arial, sans-serif;
 }
 
-.storyListPreviewImg {
-  width: 100px;
-  height: 100px;
-  background-color: hotpink;
-  margin-right: 2rem;
-  position: relative;
-  top: 0;
-  bottom: 0;
-}
-
-.storyMainImg {
-  background-color: hotpink;
-  margin: auto;
-  width: 70%;
-  height: 300px;
-}
-.story-body {
-  width: 50%;
-  margin: auto;
-  text-align: left;
-}
-
-.article-list-info {
-  font-size: 8px;
-  padding: 0;
-  margin: 0;
-  max-width: 80%;
-}
-
-.articleLink {
-  font-size: 25px;
-  font-family: monospace;
-  margin: 0;
-}
-
 h4 {
   padding: 0;
   margin: 0;
@@ -105,20 +70,313 @@ h4 {
 .story-previews {
   display: flex;
   text-align: left;
+  max-width: 100%;
 }
 
 .home-story-img {
-  min-width: 100%;
+  width: 300px;
   height: 200px;
+  object-fit: cover;
+  margin: 1rem;
+}
+.home-story {
+  margin: 1rem;
+  background-color: rgba(253, 253, 253, 0.459);
+  padding: 1rem;
+  max-width: 30%;
+}
+/************* Popular / latest page *************/
+.storyListPreviewImg {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
   background-color: hotpink;
   margin-right: 2rem;
   position: relative;
   top: 0;
   bottom: 0;
 }
-.home-story {
-  margin: 2rem;
-  background-color: cornsilk;
+
+.article-list-info {
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+  max-width: 80%;
+}
+
+.articleLink {
+  font-size: 2vw;
+  font-family: monospace;
+  margin: 0;
+}
+/************* Article page *************/
+.story-info {
+  max-width: 90%;
+}
+
+.byline {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.byline-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-image: url('https://www.lee-evans.co.uk/wp-content/uploads/2019/10/Headshot-Blank.jpg');
+  background-size: contain;
+  box-shadow: 1px 1px 3px grey;
+  align-self: center;
+  margin-left: 1rem;
+}
+.byline-name {
+  align-self: center;
+  margin-left: 1rem;
+}
+
+.subscribe {
+  box-sizing: border-box;
+  color: whitesmoke;
+  width: 40%;
+  margin: auto;
   padding: 1rem;
-  min-width: 25%;
+  text-align: left;
+  height: 100px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 139, 0.575);
+}
+
+input {
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 0.5rem;
+  width: 50%;
+}
+
+.comments-section {
+  width: 40%;
+  margin: auto;
+  text-align: left;
+}
+.comments-list {
+  padding-left: 0;
+}
+.comment-card {
+  list-style: none;
+  background-color: rgba(245, 245, 245, 0.486);
+  box-shadow: 2px 2px 5px grey;
+  margin: 1rem auto;
+  padding: 1vw;
+  display: flex;
+}
+
+.comment-content {
+  padding: 1rem;
+}
+.comment-vote {
+  padding: 1rem;
+  font-size: 25px;
+  color: darkred;
+  align-self: center;
+}
+#voteCount {
+  text-align: center;
+}
+#voteBtn {
+  padding: auto;
+  margin: 0;
+}
+/****************** HOME PAGE *******************/
+
+/****************** POPULAR/LATEST PAGE *******************/
+
+@media (min-width: 0px) {
+  .latest-popular {
+    font-size: 7vw;
+  }
+  .nav2-button {
+    font-size: 2vw;
+  }
+  .storyListPreview {
+    width: 100%;
+  }
+  .storyListPreviewImg {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    margin-right: 2rem;
+    align-self: center;
+  }
+  .article-list-info {
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
+    max-width: 80%;
+  }
+
+  .listHeadline {
+    font-size: 2.5vw;
+    font-family: Helvetica;
+    margin: 0;
+  }
+  .article-info {
+    font-size: 1vw;
+    color: rgb(63, 63, 63);
+    padding: 5px;
+    margin: 0;
+    max-width: 80%;
+    font-family: monospace;
+  }
+  .storyList {
+    width: 70%;
+    margin: auto;
+    padding-top: 2vh;
+  }
+}
+@media (min-width: 350px) {
+  .storyListPreviewImg {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+  .storyList {
+    width: 80%;
+  }
+}
+
+@media (min-width: 550px) {
+  .storyListPreviewImg {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  .storyList {
+    width: 70%;
+  }
+}
+
+@media (min-width: 800px) {
+  .storyListPreviewImg {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+  }
+}
+@media (min-width: 1200px) {
+  .storyListPreviewImg {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  .storyList {
+    width: 60%;
+  }
+}
+/****************** ARTICLE PAGE *******************/
+
+@media (min-width: 0px) {
+  .storyMainImg {
+    width: 100%;
+    margin: auto;
+    height: 300px;
+    object-fit: cover;
+  }
+  .story-head {
+    padding-top: 8vh;
+    margin: 2rem auto;
+    text-align: left;
+    width: 80%;
+  }
+  .story-text {
+    margin: auto;
+    font-size: 14px;
+    line-height: 2;
+  }
+  .story-body {
+    width: 80%;
+    margin: 2rem auto;
+    text-align: left;
+  }
+  .comments-section {
+    width: 70%;
+    font-size: 12px;
+  }
+  .subscribe {
+    width: 70%;
+  }
+}
+@media (min-width: 400px) {
+  .storyMainImg {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  .story-text {
+    font-size: 15px;
+    line-height: 2;
+  }
+  .story-body {
+    width: 80%;
+  }
+  .comment-card {
+    padding: 0;
+  }
+}
+@media (min-width: 800px) {
+  .headline {
+    font-size: 3vw;
+  }
+  .storyMainImg {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+  .story-text {
+    font-size: 16px;
+    line-height: 2.5;
+  }
+  .story-head {
+    padding-top: 6vh;
+    width: 70%;
+  }
+  .story-body {
+    width: 70%;
+  }
+  .article-list-info {
+    font-size: 8px;
+    padding: 0;
+    margin: 0;
+    max-width: 80%;
+  }
+  .articleLink {
+    font-size: 25px;
+    font-family: monospace;
+    margin: 0;
+  }
+  .subscribe {
+    width: 60%;
+  }
+  .comments-section {
+    font-size: 15px;
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  .storyMainImg {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+  }
+  .story-head {
+    width: 50%;
+  }
+  .story-body {
+    width: 50%;
+  }
+  .subscribe {
+    width: 40%;
+  }
+  .comments-section {
+    width: 40%;
+  }
 }
