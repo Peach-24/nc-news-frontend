@@ -186,6 +186,10 @@ input {
     border-radius: 5px;
     box-shadow: 1px 1px 2px rgb(27, 25, 25);
   }
+  .sidebar-button:hover {
+    background-color: rgba(177, 25, 25, 0.753);
+    transition: ease-in-out;
+  }
 }
 @media (min-width: 400px) {
   .home-story-img {
