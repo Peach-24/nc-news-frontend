@@ -12,12 +12,6 @@ const override = css`
   border-color: block;
 `;
 
-const Title = styled.h1`
-  color: darkred;
-  font-size: 4rem;
-  font-family: 'Courier New', Courier, monospace;
-  margin: 40px 0 10px 0;
-`;
 const DateText = styled.p`
   font-size: 2rem;
   font-family: 'Courier New', Courier, monospace;
@@ -74,7 +68,7 @@ class Home extends Component {
           </div>
           <div className='homeMain'>
             <Link to='/'>
-              <Title>Northcoders News</Title>
+              <h1 className='homepage-title'>Northcoders News</h1>
             </Link>
             <DateText>December 7th</DateText>
             {/* <hr></hr> */}

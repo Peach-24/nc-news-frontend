@@ -146,14 +146,20 @@ input {
 /****************** HOME PAGE *******************/
 
 @media (min-width: 0px) {
+  .homepage-title {
+    color: darkred;
+    font-size: 7vw;
+    font-family: 'Courier New', Courier, monospace;
+  }
   .story-previews {
     text-align: left;
     width: auto;
   }
 
   .home-story-img {
-    width: 100px;
-    height: auto;
+    width: 70px;
+    height: 70px;
+    align-self: center;
     object-fit: cover;
     margin-right: 1rem;
   }
@@ -170,12 +176,27 @@ input {
   }
   .sidebar-button {
     text-decoration: none;
-    min-width: 15%;
-    margin: 1rem;
-    padding: 0.5vw;
+    max-width: 20%;
+    margin: 0.5rem;
+    padding: 1vw;
+    font-size: 9px;
+    color: white;
+    background-color: rgba(139, 0, 0, 0.753);
+    border: 0px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px rgb(27, 25, 25);
+  }
+}
+@media (min-width: 400px) {
+  .home-story-img {
+    width: 100px;
+    height: 100px;
   }
 }
 @media (min-width: 900px) {
+  .homepage-title {
+    font-size: 4vw;
+  }
   .homeContainer {
     display: grid;
     grid-template-columns: 15% auto;
@@ -205,6 +226,7 @@ input {
     min-width: 50%;
     margin: 1rem auto;
     padding: 0.5vw;
+    font-size: 15px;
   }
 
   .story-previews {
@@ -217,7 +239,7 @@ input {
   .home-story-img {
     width: 400px;
     max-width: 100%;
-    max-height: auto;
+    height: auto;
     object-fit: cover;
   }
   .home-story {
@@ -232,8 +254,15 @@ input {
 /****************** POPULAR/LATEST PAGE *******************/
 
 @media (min-width: 0px) {
+  .title-date {
+    color: grey;
+    display: none;
+  }
+  .article-info {
+    font-size: 12px;
+  }
   .latest-popular {
-    font-size: 4vw;
+    font-size: 6vw;
   }
   .nav2-button {
     font-size: minMax(3rem, 1.5vw);
@@ -256,7 +285,7 @@ input {
   }
 
   .listHeadline {
-    font-size: 2vw;
+    font-size: 5vw;
     font-family: Helvetica;
     margin: 0;
   }
@@ -283,9 +312,20 @@ input {
   .storyList {
     width: 80%;
   }
+  .latest-popular {
+    font-size: 4vw;
+  }
+  .article-info {
+    font-size: 2.5vw;
+  }
 }
 
 @media (min-width: 550px) {
+  .title-date {
+    color: grey;
+    display: block;
+    font-size: 12px;
+  }
   .storyListPreviewImg {
     width: 100px;
     height: 100px;
@@ -295,7 +335,7 @@ input {
     width: 70%;
   }
   .listHeadline {
-    font-size: 3vw;
+    font-size: 4vw;
   }
 }
 
@@ -304,6 +344,9 @@ input {
     width: 130px;
     height: 130px;
     object-fit: cover;
+  }
+  .article-info {
+    font-size: 2vw;
   }
 }
 @media (min-width: 1200px) {
@@ -314,6 +357,12 @@ input {
   }
   .storyList {
     width: 60%;
+  }
+  .listHeadline {
+    font-size: 2.5vw;
+  }
+  .article-info {
+    font-size: 1vw;
   }
 }
 /****************** ARTICLE PAGE *******************/

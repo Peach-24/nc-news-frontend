@@ -16,7 +16,7 @@ const Nav1 = () => {
         <button className='sidebar-button'>Topics</button>
       </Link>
       <Link to={`/articles/${randomArticleNo}`}>
-        <button className='sidebar-button'>Random Story</button>
+        <button className='sidebar-button'>Random</button>
       </Link>
     </div>
   );
