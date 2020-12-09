@@ -28,7 +28,6 @@ export const fetchOneStory = (articleId) => {
   return axios
     .get(`https://nc-news-api-jp.herokuapp.com/api/articles/${articleId}`)
     .then((res) => {
-      console.log(res.data.article);
       return res.data.article;
     })
     .catch((err) => {
@@ -48,3 +47,20 @@ export const fetchStoryComments = (articleId) => {
       console.log(err);
     });
 };
+
+export const updateCommentVotes = (comment_id, dir) => {
+  return axios
+    .patch(`http://nc-news-api-jp.herokuapp.com/api/comments/${comment_id}`, {
+      inc_votes: dir,
+    })
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+// export const downvoteComment = (comment_id, 1) => {
+//   return axios.patch(`/api/comments/${comment_id}`).then();
+// };

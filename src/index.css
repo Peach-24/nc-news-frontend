@@ -16,11 +16,13 @@ code {
 
 a {
   text-decoration: none;
+  padding-left: 0;
 }
 
 .title-banner {
   position: fixed;
   top: 0px;
+  align-items: center;
 }
 
 .storiesHeader {
@@ -37,54 +39,6 @@ h4 {
   margin: 0;
 }
 
-.homeContainer {
-  display: grid;
-  grid-template-columns: minmax(20%, 25%) auto;
-  grid-template-areas: 'sidebar main';
-}
-
-.sidebar-links {
-  position: fixed;
-  left: 20px;
-  min-width: 20%;
-}
-.sidebar {
-  grid-template-areas: 'sidebar';
-  background-color: black;
-  min-height: 1080px;
-  padding: 1rem;
-}
-.homeMain {
-  text-align: left;
-  padding-left: 50px;
-}
-
-.sidebar-button {
-  display: block;
-  text-decoration: none;
-  width: 50%;
-  margin: 1rem auto;
-  padding: 1rem;
-}
-
-.story-previews {
-  display: flex;
-  text-align: left;
-  max-width: 100%;
-}
-
-.home-story-img {
-  width: 300px;
-  height: 200px;
-  object-fit: cover;
-  margin: 1rem;
-}
-.home-story {
-  margin: 1rem;
-  background-color: rgba(253, 253, 253, 0.459);
-  padding: 1rem;
-  max-width: 30%;
-}
 /************* Popular / latest page *************/
 .storyListPreviewImg {
   width: 130px;
@@ -108,6 +62,9 @@ h4 {
   font-size: 2vw;
   font-family: monospace;
   margin: 0;
+}
+#home-emoji {
+  margin: 0.5rem 1rem;
 }
 /************* Article page *************/
 .story-info {
@@ -188,14 +145,98 @@ input {
 }
 /****************** HOME PAGE *******************/
 
+@media (min-width: 0px) {
+  .story-previews {
+    text-align: left;
+    width: auto;
+  }
+
+  .home-story-img {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+    margin-right: 1rem;
+  }
+  .home-story {
+    margin: 2rem;
+    display: flex;
+    background-color: rgba(253, 253, 253, 0.459);
+    padding: 1rem;
+  }
+  .sidebar {
+    background-color: black;
+    height: auto;
+    padding: 1rem;
+  }
+  .sidebar-button {
+    text-decoration: none;
+    min-width: 15%;
+    margin: 1rem;
+    padding: 0.5vw;
+  }
+}
+@media (min-width: 900px) {
+  .homeContainer {
+    display: grid;
+    grid-template-columns: 15% auto;
+    grid-template-areas: 'sidebar main';
+  }
+
+  .sidebar {
+    grid-template-areas: 'sidebar';
+    background-color: black;
+    height: auto;
+    width: auto;
+    padding: 1rem;
+  }
+  .homeMain {
+    text-align: left;
+    padding-left: 50px;
+  }
+
+  .sidebar-links {
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .sidebar-button {
+    display: block;
+    text-decoration: none;
+    min-width: 50%;
+    margin: 1rem auto;
+    padding: 0.5vw;
+  }
+
+  .story-previews {
+    display: flex;
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .home-story-img {
+    width: 400px;
+    max-width: 100%;
+    max-height: auto;
+    object-fit: cover;
+  }
+  .home-story {
+    display: inline;
+    margin: 1rem;
+    background-color: rgba(253, 253, 253, 0.459);
+    padding: 1rem;
+    max-width: 30%;
+  }
+}
+
 /****************** POPULAR/LATEST PAGE *******************/
 
 @media (min-width: 0px) {
   .latest-popular {
-    font-size: 7vw;
+    font-size: 4vw;
   }
   .nav2-button {
-    font-size: 2vw;
+    font-size: minMax(3rem, 1.5vw);
   }
   .storyListPreview {
     width: 100%;
@@ -215,7 +256,7 @@ input {
   }
 
   .listHeadline {
-    font-size: 2.5vw;
+    font-size: 2vw;
     font-family: Helvetica;
     margin: 0;
   }
@@ -252,6 +293,9 @@ input {
   }
   .storyList {
     width: 70%;
+  }
+  .listHeadline {
+    font-size: 3vw;
   }
 }
 

@@ -3,6 +3,14 @@ import * as api from '../api';
 import TitleBanner from './TitleBanner';
 import * as f from '../functions/functions';
 import { Link } from '@reach/router';
+import { css } from '@emotion/core';
+import ClockLoader from 'react-spinners/ClockLoader';
+import UpvoteDownvote from './UpvoteDownvote';
+
+const override = css`
+  margin: 100px auto;
+  border-color: black;
+`;
 
 class Article extends Component {
   state = {
@@ -45,6 +53,16 @@ class Article extends Component {
   }
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <ClockLoader
+          css={override}
+          size={50}
+          color={'black'}
+          loading={this.state.loading}
+        />
+      );
+    }
     const {
       title,
       body,
@@ -66,13 +84,11 @@ class Article extends Component {
           <h1 className='headline'>{title}</h1>
           <p>{f.dateFormatter(created_at)}</p>
         </div>
-        {/* <div className='storyMainImg'> */}
         <img
           src={img_url}
           alt='featured imagery'
           className='storyMainImg'
         ></img>
-        {/* </div> */}
         <div className='story-body'>
           <div className='byline'>
             <div className='byline-img'></div>
@@ -95,7 +111,7 @@ class Article extends Component {
             <h3>Comments ({comment_count})</h3>
             {comments.map((comment) => {
               return (
-                <li className='comment-card'>
+                <li className='comment-card' key={comment.comment_id}>
                   <div className='comment-content'>
                     <p>{comment.body}</p>
                     <p>
@@ -103,11 +119,7 @@ class Article extends Component {
                     </p>
                   </div>
                   <div className='comment-vote'>
-                    <p id='voteCount'>
-                      <strong>{comment.votes}</strong>
-                    </p>
-                    <button id='voteBtn'>⬆️</button>
-                    <button id='voteBtn'>⬇️</button>
+                    <UpvoteDownvote comment={comment} />
                   </div>
                 </li>
               );

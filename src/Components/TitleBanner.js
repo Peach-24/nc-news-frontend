@@ -7,7 +7,6 @@ const TitleDiv = styled.div`
   width: 100%;
   color: red;
   background-color: black;
-  height: 40px;
   margin: 0;
   z-index: 100;
 `;
@@ -19,18 +18,19 @@ const Name = styled.h3`
   right: 0;
   top: 10px;
   color: red;
+  font-size: 1.5rem;
 `;
 const DateText = styled.p`
   color: grey;
-  position: fixed;
-  right: 50px;
-  font-size: 12px;
+  align-items: center;
 `;
 
 const TitleBanner = () => {
   return (
     <TitleDiv className='title-banner'>
-      <Link to='/'>🏠</Link>
+      <Link id='home-emoji' to='/'>
+        🏠
+      </Link>
       <Link to='/'>
         <Name>Northcoders News</Name>
       </Link>

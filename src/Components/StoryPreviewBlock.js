@@ -4,7 +4,9 @@ import { Link } from '@reach/router';
 const StoryPreviewBlock = (props) => {
   return (
     <div>
-      <h2>{props.header}</h2>
+      <Link to={`/latest/${props.header.toLowerCase()}`}>
+        <h2>{props.header}</h2>
+      </Link>
       <div className='story-previews'>
         <div className='home-story'>
           <img

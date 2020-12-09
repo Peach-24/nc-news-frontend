@@ -27,7 +27,6 @@ class Nav2 extends Component {
 
   componentDidMount() {
     const { pageHeader } = this.props;
-    console.log(pageHeader);
     this.setState({ page: pageHeader, isLoading: false });
   }
 

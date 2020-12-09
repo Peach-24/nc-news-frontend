@@ -77,8 +77,8 @@ class Home extends Component {
               <Title>Northcoders News</Title>
             </Link>
             <DateText>December 7th</DateText>
-            <hr></hr>
-            <StoryPreviewBlock articles={this.state.all} header='Top Stories' />
+            {/* <hr></hr> */}
+            {/* <StoryPreviewBlock articles={this.state.all} header='Top Stories' /> */}
             <hr></hr>
             <StoryPreviewBlock articles={this.state.coding} header='Coding' />
             <hr></hr>

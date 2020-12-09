@@ -58,7 +58,6 @@ class Latest extends Component {
         />
       );
     }
-    console.log(this.props.topic);
     return (
       <div>
         <TitleBanner />
