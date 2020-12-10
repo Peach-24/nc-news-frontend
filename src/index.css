@@ -38,15 +38,6 @@ h4 {
   padding: 0;
   margin: 0;
 }
-.user-login-box-home {
-  background-color: rgba(139, 61, 61, 0.527);
-  width: 100%;
-  margin: 20px auto;
-  color: white;
-  border-radius: 5px;
-  text-align: left;
-  display: flex;
-}
 
 #username-login {
   border-radius: 5px;
@@ -54,6 +45,20 @@ h4 {
   padding: 0.2rem;
   max-width: 60%;
   margin: 0.5rem;
+}
+.delete-comment-button {
+  background-color: rgba(128, 128, 128, 0.24);
+  border: 0px;
+  color: red;
+  font-family: monospace;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+}
+
+.delete-comment-button:hover {
+  background-color: rgba(179, 22, 22, 0.555);
+  color: white;
+  border-radius: 5px;
 }
 
 /************* Popular / latest page *************/
@@ -148,12 +153,7 @@ h4 {
 .comment-content {
   padding: 1rem;
 }
-.comment-vote {
-  padding: 1rem;
-  font-size: 25px;
-  color: darkred;
-  align-self: center;
-}
+
 #voteCount {
   text-align: center;
 }
@@ -220,6 +220,12 @@ h4 {
   }
 }
 @media (min-width: 900px) {
+  #home-date-login-box {
+    display: flex;
+    justify-content: space-between;
+    max-width: 80%;
+  }
+
   .homepage-title {
     font-size: 6vw;
   }
@@ -404,6 +410,19 @@ h4 {
 /****************** ARTICLE PAGE *******************/
 
 @media (min-width: 0px) {
+  .comment-card {
+    display: grid;
+    grid-template-areas: 'content votes';
+    grid-template-columns: auto 20%;
+  }
+
+  .comment-vote {
+    font-size: 4vw;
+    color: darkred;
+    align-self: center;
+    text-align: center;
+  }
+
   #login-to-post-text {
     color: white;
   }
@@ -440,8 +459,8 @@ h4 {
     text-align: left;
   }
   .comments-section {
-    width: 70%;
-    font-size: 12px;
+    width: 95%;
+    font-size: 10px;
   }
   .subscribe {
     width: 70%;
@@ -501,6 +520,9 @@ h4 {
   .comments-section {
     font-size: 15px;
     width: 60%;
+  }
+  .comment-vote {
+    font-size: 2vw;
   }
 }
 @media (min-width: 1200px) {

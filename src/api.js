@@ -64,9 +64,9 @@ export const updateCommentVotes = (comment_id, dir) => {
 export const postComment = (articleId, username, body) => {
   return axios
     .post(
-      `http://nc-news-api-jp.herokuapp.com/api/articles/${articleId}/comments`
+      `http://nc-news-api-jp.herokuapp.com/api/articles/${articleId}/comments`,
+      { username, body }
     )
-    .send({ username, body })
     .then((res) => {
       console.log(res.data);
     })
@@ -81,6 +81,15 @@ export const fetchUsers = () => {
     .then((res) => {
       return res.data.users;
     })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const deleteComment = (comment_id) => {
+  return axios
+    .delete(`http://nc-news-api-jp.herokuapp.com/api/comments/${comment_id}`)
+    .then(console.log('comment deleted'))
     .catch((err) => {
       console.log(err);
     });

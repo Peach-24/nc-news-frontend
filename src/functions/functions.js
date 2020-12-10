@@ -31,3 +31,18 @@ export const bodyFormatter = (str) => {
   let finalBody = arr.join('');
   return finalBody;
 };
+
+export const headlineFormatter = (str) => {
+  let splits = str.split(' ');
+  let selectedWords = [];
+
+  for (let i = 0; i < 7; i++) {
+    selectedWords.push(splits[i]);
+  }
+  const finalStr = selectedWords.join(' ');
+  if (splits.length > 7) {
+    return finalStr + '...';
+  } else {
+    return finalStr;
+  }
+};

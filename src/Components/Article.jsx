@@ -22,8 +22,6 @@ class Article extends Component {
     topic: '',
     author: '',
     created_at: '',
-    comment_count: '',
-    comments: [],
     img: '',
     isLoading: true,
   };
@@ -49,9 +47,6 @@ class Article extends Component {
         };
         return newState;
       });
-    });
-    api.fetchStoryComments(article_id).then((comments) => {
-      this.setState({ comments });
     });
   }
 
@@ -110,8 +105,6 @@ class Article extends Component {
         />
         <CommentsList
           article_id={this.state.article_id}
-          comments={this.state.comments}
-          commentCount={this.state.comment_count}
           loggedInUser={this.props.loggedInUser}
         />
       </div>
