@@ -176,15 +176,15 @@ input {
   }
   .sidebar-button {
     text-decoration: none;
-    max-width: 20%;
     margin: 0.5rem;
-    padding: 1vw;
+    padding: 2vw;
     font-size: 9px;
     color: white;
     background-color: rgba(139, 0, 0, 0.753);
     border: 0px;
     border-radius: 5px;
     box-shadow: 1px 1px 2px rgb(27, 25, 25);
+    font-family: monospace;
   }
   .sidebar-button:hover {
     background-color: rgba(177, 25, 25, 0.753);

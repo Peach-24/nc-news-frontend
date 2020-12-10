@@ -5,7 +5,7 @@ import * as f from '../functions/functions';
 import { Link } from '@reach/router';
 import { css } from '@emotion/core';
 import ClockLoader from 'react-spinners/ClockLoader';
-import UpvoteDownvote from './UpvoteDownvote';
+import CommentsList from '../Components/CommentsList';
 
 const override = css`
   margin: 100px auto;
@@ -63,16 +63,7 @@ class Article extends Component {
         />
       );
     }
-    const {
-      title,
-      body,
-      topic,
-      author,
-      created_at,
-      comment_count,
-      img_url,
-      comments,
-    } = this.state;
+    const { title, body, topic, author, created_at, img_url } = this.state;
 
     return (
       <div>
@@ -104,28 +95,11 @@ class Article extends Component {
           <h4>Subscribe to the Northcoders Newsletter</h4>
           <input type='text' placeholder='sign-up@northcoders.co.uk'></input>
         </div>
-        <div className='comments-section'>
-          <hr></hr>
 
-          <ul className='comments-list'>
-            <h3>Comments ({comment_count})</h3>
-            {comments.map((comment) => {
-              return (
-                <li className='comment-card' key={comment.comment_id}>
-                  <div className='comment-content'>
-                    <p>{comment.body}</p>
-                    <p>
-                      <em>{comment.author}</em>
-                    </p>
-                  </div>
-                  <div className='comment-vote'>
-                    <UpvoteDownvote comment={comment} />
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <CommentsList
+          comments={this.state.comments}
+          commentCount={this.state.comment_count}
+        />
       </div>
     );
   }
