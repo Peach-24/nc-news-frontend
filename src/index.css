@@ -148,7 +148,7 @@ input {
 @media (min-width: 0px) {
   .homepage-title {
     color: darkred;
-    font-size: 7vw;
+    font-size: 8vw;
     font-family: 'Courier New', Courier, monospace;
   }
   .story-previews {
@@ -167,10 +167,11 @@ input {
     margin: 2rem;
     display: flex;
     background-color: rgba(253, 253, 253, 0.459);
+    box-shadow: 1px 1px 3px grey;
     padding: 1rem;
   }
   .sidebar {
-    background-color: black;
+    background-color: rgba(19, 17, 17, 0.979);
     height: auto;
     padding: 1rem;
   }
@@ -178,7 +179,7 @@ input {
     text-decoration: none;
     margin: 0.5rem;
     padding: 2vw;
-    font-size: 9px;
+    font-size: 10px;
     color: white;
     background-color: rgba(139, 0, 0, 0.753);
     border: 0px;
@@ -196,10 +197,13 @@ input {
     width: 100px;
     height: 100px;
   }
+  .sidebar-button {
+    font-size: 15px;
+  }
 }
 @media (min-width: 900px) {
   .homepage-title {
-    font-size: 4vw;
+    font-size: 6vw;
   }
   .homeContainer {
     display: grid;
@@ -209,7 +213,6 @@ input {
 
   .sidebar {
     grid-template-areas: 'sidebar';
-    background-color: black;
     height: auto;
     width: auto;
     padding: 1rem;
@@ -255,11 +258,16 @@ input {
   }
 }
 
-/****************** POPULAR/LATEST PAGE *******************/
+@media (min-width: 1350px) {
+  .homepage-title {
+    font-size: 5vw;
+  }
+}
 
+/****************** POPULAR/LATEST PAGE *******************/
 @media (min-width: 0px) {
   .title-date {
-    color: grey;
+    color: #fff;
     display: none;
   }
   .article-info {
@@ -272,13 +280,13 @@ input {
     font-size: minMax(3rem, 1.5vw);
   }
   .storyListPreview {
-    width: 100%;
+    max-width: 100%;
   }
   .storyListPreviewImg {
     width: 70px;
     height: 70px;
     object-fit: cover;
-    margin-right: 2rem;
+    margin-right: 1rem;
     align-self: center;
   }
   .article-list-info {
@@ -302,9 +310,10 @@ input {
     font-family: monospace;
   }
   .storyList {
-    width: 70%;
+    width: 100%;
     margin: auto;
     padding-top: 2vh;
+    padding-left: 0;
   }
 }
 @media (min-width: 350px) {
@@ -314,7 +323,7 @@ input {
     object-fit: cover;
   }
   .storyList {
-    width: 80%;
+    width: 90%;
   }
   .latest-popular {
     font-size: 4vw;
@@ -326,7 +335,6 @@ input {
 
 @media (min-width: 550px) {
   .title-date {
-    color: grey;
     display: block;
     font-size: 12px;
   }
@@ -336,7 +344,7 @@ input {
     object-fit: cover;
   }
   .storyList {
-    width: 70%;
+    width: 80%;
   }
   .listHeadline {
     font-size: 4vw;
@@ -351,6 +359,12 @@ input {
   }
   .article-info {
     font-size: 2vw;
+  }
+  .listHeadline {
+    font-size: 3vw;
+  }
+  .storyList {
+    width: 70%;
   }
 }
 @media (min-width: 1200px) {

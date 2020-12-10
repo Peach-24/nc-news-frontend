@@ -12,7 +12,7 @@ const NavBtn = styled.button`
   &:hover {
     text-decoration: underline;
   }
-  margin: 1rem 1rem 0;
+  margin: 1vw 1vw 0;
   color: black;
   background-color: transparent;
   border: 0px;

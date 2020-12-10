@@ -5,18 +5,19 @@ import styled from 'styled-components';
 const TitleDiv = styled.div`
   display: flex;
   width: 100%;
-  color: red;
-  background-color: black;
+  background-color: rgba(19, 17, 17, 0.979);
+  padding: 1px;
   margin: 0;
   z-index: 100;
 `;
 
 const Name = styled.h3`
   position: fixed;
+  width: 100%;
   margin: auto;
   left: 0;
   right: 0;
-  top: 10px;
+  top: 13px;
   color: red;
   font-size: 1rem;
 `;

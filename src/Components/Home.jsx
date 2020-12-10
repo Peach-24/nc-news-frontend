@@ -13,7 +13,7 @@ const override = css`
 `;
 
 const DateText = styled.p`
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: 'Courier New', Courier, monospace;
   margin: 0;
 `;
