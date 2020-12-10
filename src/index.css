@@ -38,6 +38,23 @@ h4 {
   padding: 0;
   margin: 0;
 }
+.user-login-box-home {
+  background-color: rgba(139, 61, 61, 0.527);
+  width: 100%;
+  margin: 20px auto;
+  color: white;
+  border-radius: 5px;
+  text-align: left;
+  display: flex;
+}
+
+#username-login {
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 0.2rem;
+  max-width: 60%;
+  margin: 0.5rem;
+}
 
 /************* Popular / latest page *************/
 .storyListPreviewImg {
@@ -103,11 +120,12 @@ h4 {
   background-color: rgba(0, 0, 139, 0.575);
 }
 
-input {
+#subscribe-input {
   border-radius: 10px;
   margin-top: 10px;
   padding: 0.5rem;
-  width: 50%;
+  min-width: 50%;
+  max-width: 60%;
 }
 
 .comments-section {
@@ -386,6 +404,19 @@ input {
 /****************** ARTICLE PAGE *******************/
 
 @media (min-width: 0px) {
+  #login-to-post-text {
+    color: white;
+  }
+  #post-comment-textarea {
+    width: 95%;
+    margin: 0 1vw 1vw 0;
+  }
+  .postCommentBlock {
+    background-color: rgba(32, 37, 37, 0.164);
+    padding: 10px;
+    border-radius: 2px;
+    display: grid;
+  }
   .storyMainImg {
     width: 100%;
     margin: auto;

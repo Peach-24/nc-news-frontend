@@ -61,6 +61,27 @@ export const updateCommentVotes = (comment_id, dir) => {
     });
 };
 
-// export const downvoteComment = (comment_id, 1) => {
-//   return axios.patch(`/api/comments/${comment_id}`).then();
-// };
+export const postComment = (articleId, username, body) => {
+  return axios
+    .post(
+      `http://nc-news-api-jp.herokuapp.com/api/articles/${articleId}/comments`
+    )
+    .send({ username, body })
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const fetchUsers = () => {
+  return axios
+    .get('https://nc-news-api-jp.herokuapp.com/api/users')
+    .then((res) => {
+      return res.data.users;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

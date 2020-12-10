@@ -6,6 +6,7 @@ import * as api from '../api';
 import { css } from '@emotion/core';
 import ClockLoader from 'react-spinners/ClockLoader';
 import { Link } from '@reach/router';
+import UserLogin from './UserLogin';
 
 const override = css`
   margin: 100px auto;
@@ -28,6 +29,9 @@ class Home extends Component {
   };
 
   componentDidMount() {
+    const { loggedInUser } = this.props;
+    this.setState({ loggedInUser });
+
     api.fetchPopularArticles().then((stories) => {
       const codingStories = stories.filter((story) => story.topic === 'coding');
       const footballStories = stories.filter(
@@ -71,6 +75,12 @@ class Home extends Component {
               <h1 className='homepage-title'>Northcoders News</h1>
             </Link>
             <DateText>December 7th</DateText>
+            <UserLogin
+              loggedInUser={this.props.loggedInUser}
+              login={this.props.login}
+              logout={this.props.logout}
+            />
+            {/* ----- TOP STORIES BLOCK ---- */}
             {/* <hr></hr> */}
             {/* <StoryPreviewBlock articles={this.state.all} header='Top Stories' /> */}
             <hr></hr>

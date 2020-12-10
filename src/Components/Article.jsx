@@ -6,6 +6,7 @@ import { Link } from '@reach/router';
 import { css } from '@emotion/core';
 import ClockLoader from 'react-spinners/ClockLoader';
 import CommentsList from '../Components/CommentsList';
+import UserLogin from '../Components/UserLogin';
 
 const override = css`
   margin: 100px auto;
@@ -29,6 +30,8 @@ class Article extends Component {
 
   componentDidMount() {
     const { article_id } = this.props;
+    const { loggedInUser } = this.props;
+    this.setState({ loggedInUser });
 
     api.fetchOneStory(article_id).then((article) => {
       this.setState((currState) => {
@@ -93,12 +96,23 @@ class Article extends Component {
         </div>
         <div className='subscribe'>
           <h4>Subscribe to the Northcoders Newsletter</h4>
-          <input type='text' placeholder='sign-up@northcoders.co.uk'></input>
+          <input
+            id='subscribe-input'
+            type='text'
+            placeholder='sign-up@northcoders.co.uk'
+          ></input>
         </div>
-
+        <hr></hr>
+        <UserLogin
+          loggedInUser={this.props.loggedInUser}
+          login={this.props.login}
+          logout={this.props.logout}
+        />
         <CommentsList
+          article_id={this.state.article_id}
           comments={this.state.comments}
           commentCount={this.state.comment_count}
+          loggedInUser={this.props.loggedInUser}
         />
       </div>
     );
