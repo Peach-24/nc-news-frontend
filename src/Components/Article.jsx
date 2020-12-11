@@ -7,6 +7,7 @@ import { css } from '@emotion/core';
 import ClockLoader from 'react-spinners/ClockLoader';
 import CommentsList from '../Components/CommentsList';
 import UserLogin from '../Components/UserLogin';
+import ArticleVoter from '../Components/ArticleVoter';
 
 const override = css`
   margin: 100px auto;
@@ -18,7 +19,6 @@ class Article extends Component {
     article_id: 0,
     title: '',
     body: '',
-    votes: 0,
     topic: '',
     author: '',
     created_at: '',
@@ -37,7 +37,6 @@ class Article extends Component {
           article_id: article[0].article_id,
           title: article[0].title,
           body: article[0].body,
-          votes: article[0].votes,
           topic: article[0].topic,
           author: article[0].author,
           created_at: article[0].created_at,
@@ -89,14 +88,7 @@ class Article extends Component {
           <hr></hr>
           <p className='story-text'>{body}</p>
         </div>
-        <div className='subscribe'>
-          <h4>Subscribe to the Northcoders Newsletter</h4>
-          <input
-            id='subscribe-input'
-            type='text'
-            placeholder='sign-up@northcoders.co.uk'
-          ></input>
-        </div>
+        <ArticleVoter article_id={this.state.article_id} />
         <hr></hr>
         <UserLogin
           loggedInUser={this.props.loggedInUser}

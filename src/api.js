@@ -48,6 +48,20 @@ export const fetchStoryComments = (articleId) => {
     });
 };
 
+export const updateArticleVotes = (article_id, dir) => {
+  return axios
+    .patch(`http://nc-news-api-jp.herokuapp.com/api/articles/${article_id}`, {
+      inc_votes: dir,
+    })
+    .then((res) => {
+      console.log(res.data);
+      return res.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 export const updateCommentVotes = (comment_id, dir) => {
   return axios
     .patch(`http://nc-news-api-jp.herokuapp.com/api/comments/${comment_id}`, {

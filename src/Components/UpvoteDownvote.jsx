@@ -14,7 +14,6 @@ class UpvoteDownvote extends Component {
   }
 
   handleUpClick = (event) => {
-    console.log('voted up!');
     api.updateCommentVotes(this.state.comment.comment_id, 1).then(() => {
       this.setState((currState) => {
         const newState = {
@@ -26,7 +25,6 @@ class UpvoteDownvote extends Component {
     });
   };
   handleDownClick = (event) => {
-    console.log('voted down!');
     api.updateCommentVotes(this.state.comment.comment_id, -1).then(() => {
       this.setState((currState) => {
         const newState = {
