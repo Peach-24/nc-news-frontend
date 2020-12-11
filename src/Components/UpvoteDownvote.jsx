@@ -4,8 +4,7 @@ import * as api from '../api';
 class UpvoteDownvote extends Component {
   state = {
     comment: {},
-    hasUpvoted: false,
-    hasDownVoted: false,
+    hasVoted: false,
   };
 
   componentDidMount() {
@@ -20,7 +19,7 @@ class UpvoteDownvote extends Component {
       this.setState((currState) => {
         const newState = {
           comment: { ...currState.comment, votes: currState.comment.votes + 1 },
-          hasUpvoted: true,
+          hasVoted: true,
         };
         return newState;
       });
@@ -32,7 +31,7 @@ class UpvoteDownvote extends Component {
       this.setState((currState) => {
         const newState = {
           comment: { ...currState.comment, votes: currState.comment.votes - 1 },
-          hasDownVoted: true,
+          hasVoted: true,
         };
         return newState;
       });
@@ -47,17 +46,25 @@ class UpvoteDownvote extends Component {
         <p id='voteCount'>
           <strong>{votes}</strong>
         </p>
-        <button
-          id='UpvoteBtn'
-          onClick={
-            !this.state.hasVoted ? this.handleUpClick : this.handleUpClick
-          }
-        >
-          ⬆️
-        </button>
-        <button id='UpvoteBtn' onClick={this.handleDownClick}>
-          ⬇️
-        </button>
+        {this.state.hasVoted ? (
+          <div>
+            <button id='UpvoteBtn' disabled>
+              ⬆️
+            </button>
+            <button id='UpvoteBtn' disabled>
+              ⬇️
+            </button>
+          </div>
+        ) : (
+          <div>
+            <button id='UpvoteBtn' onClick={this.handleUpClick}>
+              ⬆️
+            </button>
+            <button id='UpvoteBtn' onClick={this.handleDownClick}>
+              ⬇️
+            </button>
+          </div>
+        )}
       </div>
     );
   }

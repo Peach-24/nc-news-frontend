@@ -14,30 +14,47 @@ class CommentsList extends Component {
     const { article_id } = this.props;
     api.fetchStoryComments(article_id).then((comments) => {
       this.setState({
-        comments,
+        comments: comments,
         articleId: article_id,
         comment_count: comments.length,
       });
     });
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.comments !== this.state.comments) {
-  //     api
-  //       .fetchStoryComments(this.state.article_id)
-  //       .then((comments) => this.setState({ comments }));
-  //   }
-  // }
+  handleDelete = (commentId) => {
+    api.deleteComment(commentId).then(() => {
+      this.setState((currState) => {
+        const newState = {
+          comments: currState.comments.filter(
+            (comment) => comment.comment_id !== commentId
+          ),
+          comment_count: currState.comment_count - 1,
+        };
+        return newState;
+      });
+    });
+  };
+
+  handlePost = (event) => {
+    const { article_id, loggedInUser } = this.props;
+    api
+      .postComment(article_id, loggedInUser, this.state.newComment)
+      .then((comment) => {
+        this.setState((currState) => {
+          const newComments = [...currState.comments];
+          newComments.unshift(comment);
+          const newState = {
+            comments: newComments,
+            comment_count: currState.comment_count + 1,
+            newComment: '',
+          };
+          return newState;
+        });
+      });
+  };
 
   render() {
-    const { article_id, loggedInUser } = this.props;
-
-    const handlePost = (event) => {
-      api
-        .postComment(article_id, loggedInUser, this.state.newComment)
-        .then(this.setState({ newComment: '' }));
-    };
-
+    const { loggedInUser } = this.props;
     return (
       <div className='comments-section'>
         <div className='postCommentBlock'>
@@ -56,7 +73,7 @@ class CommentsList extends Component {
                   }}
                   required
                 ></textarea>
-                <button type='submit' onClick={handlePost}>
+                <button type='submit' onClick={this.handlePost}>
                   Submit
                 </button>
               </label>
@@ -81,7 +98,9 @@ class CommentsList extends Component {
                   {comment.author === loggedInUser ? (
                     <button
                       className='delete-comment-button'
-                      onClick={() => api.deleteComment(comment.comment_id)}
+                      onClick={() => {
+                        this.handleDelete(comment.comment_id);
+                      }}
                     >
                       <strong>delete ✖️</strong>
                     </button>

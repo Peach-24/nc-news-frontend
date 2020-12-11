@@ -68,7 +68,7 @@ export const postComment = (articleId, username, body) => {
       { username, body }
     )
     .then((res) => {
-      console.log(res.data);
+      return res.data[0];
     })
     .catch((err) => {
       console.log(err);
@@ -89,7 +89,6 @@ export const fetchUsers = () => {
 export const deleteComment = (comment_id) => {
   return axios
     .delete(`http://nc-news-api-jp.herokuapp.com/api/comments/${comment_id}`)
-    .then(console.log('comment deleted'))
     .catch((err) => {
       console.log(err);
     });
