@@ -12,9 +12,9 @@ const Nav1 = () => {
       <Link to='/popular/all'>
         <button className='sidebar-button'>Popular</button>
       </Link>
-      <Link to='/topics'>
+      {/* <Link to='/topics'>
         <button className='sidebar-button'>Topics</button>
-      </Link>
+      </Link> */}
       <Link to={`/articles/${randomArticleNo}`}>
         <button className='sidebar-button'>Random</button>
       </Link>

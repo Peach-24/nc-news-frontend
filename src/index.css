@@ -61,12 +61,17 @@ h4 {
   border-radius: 5px;
 }
 
+section {
+  border-top: 2px solid rgba(0, 0, 0, 0.623);
+  padding-top: 1rem;
+}
+
 /************* Popular / latest page *************/
 .storyListPreviewImg {
   width: 130px;
   height: 130px;
   object-fit: cover;
-  background-color: hotpink;
+  background-color: rgba(70, 68, 69, 0.719);
   margin-right: 2rem;
   position: relative;
   top: 0;
@@ -165,6 +170,12 @@ h4 {
   color: black;
 }
 
+.error-message {
+  position: relative;
+  top: 50px;
+  /* margin-top: 10%; */
+}
+
 /****************** HOME PAGE *******************/
 
 @media (min-width: 0px) {
@@ -228,6 +239,7 @@ h4 {
     display: flex;
     justify-content: space-between;
     max-width: 80%;
+    align-items: center;
   }
 
   .homepage-title {
@@ -437,6 +449,7 @@ h4 {
   .postCommentBlock {
     background-color: rgba(32, 37, 37, 0.164);
     padding: 10px;
+    margin-top: 2rem;
     border-radius: 2px;
     display: grid;
   }
@@ -456,6 +469,8 @@ h4 {
     margin: auto;
     font-size: 14px;
     line-height: 2;
+    border-top: 2px solid rgba(0, 0, 0, 0.623);
+    padding-top: 1rem;
   }
   .story-body {
     width: 80%;

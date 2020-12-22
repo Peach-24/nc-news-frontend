@@ -1,60 +1,68 @@
 import axios from 'axios';
-const popularUrl =
-  'https://nc-news-api-jp.herokuapp.com/api/articles?sort_by=comment_count';
+
+// const testUrl = 'https://test-nc-backend.herokuapp.com/api';
+/*  NC Test API returns an object rather than an array for fetchOneStory
+ *
+ */
+
+// const personalUrl = 'https://nc-news-api-jp.herokuapp.com/api';
+// const popularUrl =
+//   'https://nc-news-api-jp.herokuapp.com/api/articles?sort_by=comment_count';
+
+const newsApi = axios.create({
+  baseURL: 'https://nc-news-api-jp.herokuapp.com/api',
+});
 
 export const fetchLatestArticles = () => {
-  return axios
-    .get('https://nc-news-api-jp.herokuapp.com/api/articles/')
+  return newsApi
+    .get('/articles')
     .then((res) => {
       return res.data.articles;
     })
     .catch((err) => {
-      console.log(err);
+      console.dir(err);
     });
 };
 
 export const fetchPopularArticles = () => {
-  return axios
-    .get(popularUrl)
+  return newsApi
+    .get('/articles?sort_by=comment_count')
     .then((res) => {
       return res.data.articles;
     })
     .catch((err) => {
-      console.log(err);
+      return err.response.data;
     });
 };
 
 export const fetchOneStory = (articleId) => {
-  return axios
-    .get(`https://nc-news-api-jp.herokuapp.com/api/articles/${articleId}`)
-    .then((res) => {
-      return res.data.article;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  return newsApi.get(`/articles/${articleId}`).then((res) => {
+    return res.data.article;
+  });
+  // .catch((err) => {
+  //   console.log(err.response.data);
+  //   return err.response.data;
+  // });
 };
 
 export const fetchStoryComments = (articleId) => {
-  return axios
-    .get(
-      `https://nc-news-api-jp.herokuapp.com/api/articles/${articleId}/comments?sort_by=votes&limit=30`
-    )
+  return newsApi
+    .get(`/articles/${articleId}/comments?sort_by=votes&limit=30`)
     .then((res) => {
       return res.data.comments;
-    })
-    .catch((err) => {
-      console.log(err);
     });
+  // .catch((err) => {
+  //   console.log(err.response.data);
+  //   return err.response.data;
+  // });
 };
 
 export const updateArticleVotes = (article_id, dir) => {
-  return axios
-    .patch(`http://nc-news-api-jp.herokuapp.com/api/articles/${article_id}`, {
+  return newsApi
+    .patch(`/articles/${article_id}`, {
       inc_votes: dir,
     })
     .then((res) => {
-      console.log(res.data);
       return res.data;
     })
     .catch((err) => {
@@ -63,8 +71,8 @@ export const updateArticleVotes = (article_id, dir) => {
 };
 
 export const updateCommentVotes = (comment_id, dir) => {
-  return axios
-    .patch(`http://nc-news-api-jp.herokuapp.com/api/comments/${comment_id}`, {
+  return newsApi
+    .patch(`/comments/${comment_id}`, {
       inc_votes: dir,
     })
     .then((res) => {
@@ -76,11 +84,8 @@ export const updateCommentVotes = (comment_id, dir) => {
 };
 
 export const postComment = (articleId, username, body) => {
-  return axios
-    .post(
-      `http://nc-news-api-jp.herokuapp.com/api/articles/${articleId}/comments`,
-      { username, body }
-    )
+  return newsApi
+    .post(`/articles/${articleId}/comments`, { username, body })
     .then((res) => {
       return res.data[0];
     })
@@ -90,8 +95,8 @@ export const postComment = (articleId, username, body) => {
 };
 
 export const fetchUsers = () => {
-  return axios
-    .get('https://nc-news-api-jp.herokuapp.com/api/users')
+  return newsApi
+    .get('/users')
     .then((res) => {
       return res.data.users;
     })
@@ -101,9 +106,7 @@ export const fetchUsers = () => {
 };
 
 export const deleteComment = (comment_id) => {
-  return axios
-    .delete(`http://nc-news-api-jp.herokuapp.com/api/comments/${comment_id}`)
-    .catch((err) => {
-      console.log(err);
-    });
+  return newsApi.delete(`/comments/${comment_id}`).catch((err) => {
+    console.log(err);
+  });
 };

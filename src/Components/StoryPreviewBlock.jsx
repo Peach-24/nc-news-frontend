@@ -4,7 +4,7 @@ import * as f from '../functions/functions';
 
 const StoryPreviewBlock = (props) => {
   return (
-    <div>
+    <section>
       <Link to={`/latest/${props.header.toLowerCase()}`}>
         <h2>{props.header}</h2>
       </Link>
@@ -54,7 +54,7 @@ const StoryPreviewBlock = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

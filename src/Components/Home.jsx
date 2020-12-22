@@ -85,16 +85,13 @@ class Home extends Component {
             {/* ----- TOP STORIES BLOCK ---- */}
             {/* <hr></hr> */}
             {/* <StoryPreviewBlock articles={this.state.all} header='Top Stories' /> */}
-            <hr></hr>
+
             <StoryPreviewBlock
               articles={this.state.football}
               header='Football'
             />
-            <hr></hr>
             <StoryPreviewBlock articles={this.state.coding} header='Coding' />
-            <hr></hr>
             <StoryPreviewBlock articles={this.state.cooking} header='Cooking' />
-            <hr></hr>
           </div>
         </div>
       );

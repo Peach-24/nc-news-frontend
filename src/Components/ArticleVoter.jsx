@@ -10,9 +10,8 @@ class ArticleVoter extends Component {
 
   componentDidMount() {
     const { article_id } = this.props;
-    api.fetchOneStory(article_id).then((arr) => {
-      this.setState({ votes: arr[0].votes, article_id });
-      console.log(this.state);
+    api.fetchOneStory(article_id).then((story) => {
+      this.setState({ votes: story.votes, article_id });
     });
   }
 

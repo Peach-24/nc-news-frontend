@@ -1,5 +1,5 @@
 import './App.css';
-import { Router } from '@reach/router';
+import { Router, Redirect } from '@reach/router';
 import Home from './Components/Home';
 import Latest from './Components/Latest';
 import Popular from './Components/Popular';
@@ -43,7 +43,9 @@ class App extends Component {
             logout={this.logout}
             login={this.login}
           />
+          <Redirect noThrow from='/latest' to='/latest/all' />
           <Latest path='/latest/:topic' />
+          <Redirect noThrow from='/popular' to='/popular/all' />
           <Popular path='/popular/:topic' />
           <Article
             path='/articles/:article_id'
@@ -51,7 +53,7 @@ class App extends Component {
             logout={this.logout}
             login={this.login}
           />
-          <ErrorMessage default errorMessage='Page not found... ☠️' />
+          <ErrorMessage default errorMessage='Page not found' />
         </Router>
       </div>
     );

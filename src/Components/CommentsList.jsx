@@ -8,6 +8,8 @@ class CommentsList extends Component {
     articleId: 0,
     comment_count: 0,
     newComment: '',
+    isError: false,
+    err: null,
   };
 
   componentDidMount() {
@@ -37,24 +39,27 @@ class CommentsList extends Component {
 
   handlePost = (event) => {
     const { article_id, loggedInUser } = this.props;
-    api
-      .postComment(article_id, loggedInUser, this.state.newComment)
-      .then((comment) => {
-        this.setState((currState) => {
-          const newComments = [...currState.comments];
-          newComments.unshift(comment);
-          const newState = {
-            comments: newComments,
-            comment_count: currState.comment_count + 1,
-            newComment: '',
-          };
-          return newState;
+    if (this.state.newComment.length > 0) {
+      api
+        .postComment(article_id, loggedInUser, this.state.newComment)
+        .then((comment) => {
+          this.setState((currState) => {
+            const newComments = [...currState.comments];
+            newComments.unshift(comment);
+            const newState = {
+              comments: newComments,
+              comment_count: currState.comment_count + 1,
+              newComment: '',
+            };
+            return newState;
+          });
         });
-      });
+    }
   };
 
   render() {
     const { loggedInUser } = this.props;
+
     return (
       <div className='comments-section'>
         <div className='postCommentBlock'>
