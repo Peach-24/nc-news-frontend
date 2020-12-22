@@ -173,7 +173,8 @@ section {
 .error-message {
   position: relative;
   top: 50px;
-  /* margin-top: 10%; */
+  font-size: 18px;
+  font-weight: 500;
 }
 
 /****************** HOME PAGE *******************/

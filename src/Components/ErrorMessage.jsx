@@ -6,7 +6,7 @@ const ErrorMessage = (props) => {
     <>
       <TitleBanner />
       <div className='error-message'>
-        <p>{props.errorMessage}... ☠️</p>
+        <p>{props.errorMessage}</p>
       </div>
     </>
   );

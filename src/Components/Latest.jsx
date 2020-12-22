@@ -22,6 +22,8 @@ class Latest extends Component {
     football: [],
     cooking: [],
     isLoading: true,
+    isError: false,
+    error: null,
   };
 
   componentDidMount() {

@@ -49,13 +49,10 @@ class Article extends Component {
         });
       })
       .catch((err) => {
-        this.setState((currState) => {
-          const newState = {
-            isLoading: false,
-            isError: true,
-            err: err.response.data.msg,
-          };
-          return newState;
+        this.setState({
+          isLoading: false,
+          isError: true,
+          err: `[${err.response.status}] ${err.response.data.msg}`,
         });
       });
   }
@@ -99,7 +96,7 @@ class Article extends Component {
         ) : (
           <>
             <TitleBanner />
-            <ErrorMessage errorMessage={this.state.err} />
+            <ErrorMessage errorMessage={this.state.err + '... ☠️'} />
           </>
         )}
       </>

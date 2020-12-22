@@ -53,7 +53,7 @@ class App extends Component {
             logout={this.logout}
             login={this.login}
           />
-          <ErrorMessage default errorMessage='Page not found' />
+          <ErrorMessage default errorMessage='Page not found... ☠️' />
         </Router>
       </div>
     );
