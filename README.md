@@ -19,7 +19,7 @@ As a logged-in user on the site, you can:
 - Post comments on articles
 - Delete your own comments
 
-\***\*Further planned developments:\*\***
+### Further planned developments:
 
 - The ability for logged in users to post articles
 - Dynamic date on the home page
