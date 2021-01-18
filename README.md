@@ -1,4 +1,4 @@
-# A news website made using React
+# A news website made using React 🗞
 
 <br>
 
